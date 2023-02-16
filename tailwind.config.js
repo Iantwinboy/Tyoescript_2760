@@ -1,11 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        "./src/**/*.{html,ts}",
-        './index.html'
-    ],
-    theme: {
-        extend: {},
+  content: [
+    "./src/**/*.{html,ts}",
+    './index.html'
+  ],
+  theme: {
+    fontFamily: {
+      'babylonica': ['babylonica', 'cursive']
     },
-    plugins: [require("daisyui")],
+    extend: {},
+  },
+  plugins: [require("daisyui")],
 }
