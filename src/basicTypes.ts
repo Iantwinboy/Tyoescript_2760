@@ -34,6 +34,9 @@ export const objectTypeExample = () => {
         <pre data-prefix="20"><code>  role: Role.ADMIN,</code></pre>
         <pre data-prefix="21"><code>}</code></pre>`
     }
+
+
+
 }
 
 console.log('This is my Basic Types practice page')
@@ -74,18 +77,45 @@ const sportsCar: {
 
 console.log('My car is one of these', sportsCar)
 
+enum Colors {
+    Red = "#FF0000",
+    Green = "#00FF00",
+    Blue = "#0000FF"
+  }
+  
+  let myColor: Colors = Colors.Red;
+  console.log(myColor); // Output: "#FF0000"
+  
+
 // Example of typescript union types    
 
-function combine(input1: number | string, input2: number | string) {
-    let result
-    if (typeof input1 === 'number' && typeof input2 === 'number') {
-        result = input1 + input2
-    } else {
-        result = input1.toString() + input2.toString()
-    }
-    return result
-}
 
+// union types separated by pipe character
+let canBeOfVaryingType: number | string = "String this time";
+canBeOfVaryingType = 12;
+
+const combine = (input1: number | string, input2: number | string) => {
+  let result;
+  
+  // runtime typecheck for numbers
+  if (typeof input1 === 'number' && typeof input2 === 'number') {
+    result = input1 + input2;
+  }
+  // or concat and return a string
+  else {
+    result = input1.toString() + input2.toString();
+  }
+  
+  return result;
+};
+
+const combineNumbers = combine(30, 50);
+const combineStrings = combine('A', 'B');
+const combineMixed = combine('A', 120);
+
+console.log(combineNumbers);
+console.log(combineStrings);
+console.log(combineMixed);
 console.log(combine(25, 3.5))
 console.log(combine('25', '3.5'))
 
@@ -104,6 +134,9 @@ function combine2(input1: number | string, input2: number | string, resultConver
 console.log(combine2(25, 3.5, 'as-number'))
 console.log(combine2('25', '3.5', 'as-number'))
 console.log(combine2('25', '3.5', 'as-text'))
+
+
+
 
 // Example of typescript function as type
 //function loadExample(functionExample: () => { title: string, explanation: string, code: string })
